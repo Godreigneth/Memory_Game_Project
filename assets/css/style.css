@@ -65,3 +65,11 @@ html {
     box-shadow: 5px 5px #888;
     height: 80px;
 }
+
+.back {
+    display: block;
+}
+
+.front {
+    display: none;
+}
