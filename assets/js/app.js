@@ -1,4 +1,4 @@
-/*** Array that holds different contents hidden within the boxes*/ 
+/*** Array that holds different contents hidden within the boxes*/
 const boxes = [
   "red",
   "blue",
@@ -10,39 +10,49 @@ const boxes = [
   "gold",
 ];
 
-/*** Game Object, where all the data can be set*/ 
+/*** Game Object, where all the data can be set*/
 const game = {};
-$('.startButton').click(startGame);
+$(".startButton").click(startGame);
+
+
+function arrayRandomize(arr) {
+    arr.sort(function () {
+        return .5 - Math.random();
+    })
+}
+
 
 function startGame() {
-    console.log('start');
-    $('.startButton').hide();
-    game.clicks = 0;
-    game.pause = false;
-    game.sel = [];
-    game.newArray = boxes.concat(boxes);
-    console.log(game.newArray);
-    $('.game').html('');
-    $.each(game.newArray, function(key,value){
-        console.log(key);
-        console.log(value);
+  console.log("start");
+  $(".startButton").hide();
+  game.clicks = 0;
+  game.pause = false;
+  game.sel = [];
+  game.newArray = boxes.concat(boxes);
+  console.log(game.newArray);
+  arrayRandomize(game.newArray);
 
-        let box = $('<div>');
-        console.log(box);
-        box.addClass('box');
-        box.data('cnt',key+1);
-        box.data('val',value);
+  $(".game").html("");
+  $.each(game.newArray, function (key, value) {
+    console.log(key);
+    console.log(value);
 
-        let back = $('<div>');
-        back.addClass('back');
-        back.html(key+1);
-        box.append(back);
+    let box = $("<div>");
+    console.log(box);
+    box.addClass("box");
+    box.data("cnt", key + 1);
+    box.data("val", value);
 
-        let front = $('<div>');
-        front.css('background-color',value);
-        front.text(value);
-        front.addClass('front');
-        box.append(front);
-        $('.game').append(box);
-    })
+    let back = $("<div>");
+    back.addClass("back");
+    back.html(key + 1);
+    box.append(back);
+
+    let front = $("<div>");
+    front.css("background-color", value);
+    front.text(value);
+    front.addClass("front");
+    box.append(front);
+    $(".game").append(box);
+  });
 }
