@@ -53,3 +53,15 @@ html {
   width: 100%;
   text-align: center;
 }
+
+.box {
+    width: 21%;
+    margin: 1%;
+    display: inline-block;
+    line-height: 80px;
+    text-align: center;
+    cursor: pointer;
+    padding: 1%;
+    box-shadow: 5px 5px #888;
+    height: 80px;
+}
